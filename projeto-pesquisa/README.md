@@ -1,13 +1,13 @@
 # Modelo LaTeX de Projeto de Pesquisa para o [PPGCA](http://dcm.ffclrp.usp.br/ppgca/)
 
-Este diretório contém uma [classe](ppgca.cls) LaTeX para ser carregada e um 
-[arquivo](main.tex) exemplo de projeto de pesquisa para o programa de pós-graduação 
+Este diretório contém uma [classe](ppgca.cls) LaTeX para ser carregada e um
+[arquivo](main.tex) exemplo de projeto de pesquisa para o programa de pós-graduação
 em Computação Aplicada do Departamento de Computação e Matemática da FFCLRP/USP.
 
 ## Receita
 
 Baixe o conjunto de arquivos
-[=>zipado<=](https://git.uspdigital.usp.br/ajholanda/modelos-ppgca/repository/archive.zip),
+[=>zipado<=](https://github.com/ajholanda/modelos-ppgca/archive/master.zip)
 e descompacte-os em um diretório qualquer. Dentro do diretório
 descompactado, entre no diretório `projeto-pesquisa/`, os arquivos
 principais serão:
