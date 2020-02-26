@@ -140,8 +140,9 @@
 \makechapterstyle{ppgca@chaptertitlestyle}{
   %%
   % 2020-02-26-ajh: the next uncommented line was added to solve the problem
-  % of replicated title after the section is written.
+  % of replicated title after the chapter/section is written.
   % https://tex.stackexchange.com/questions/317937/section-name-appearing-twice?rq=1
+  \renewcommand{\chaptermark}[1]{}
   \renewcommand{\sectionmark}[1]{}
   %%
   \renewcommand*{\printchaptername}{}
