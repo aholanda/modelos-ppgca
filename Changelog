@@ -1,9 +1,13 @@
 # Changelog
+## 2.2 - 2018-02-21
+- Os capítulos ainda apareciam repetidos pois faltava "zerar" a
+  variável `chaptermark`.
+
 ## 2.1 - 2018-02-21
 ### [dissertacao](dissertacao)
-Os títulos dos capítulos e seções estavam duplicando em algumas compilações.
-O comando  `\renewcommand{\sectionmark}[1]{}` deve que ser adicionado antes
-da construções dos títulos dos capítulos.
+- Os títulos dos capítulos e seções estavam duplicando em algumas compilações.
+  O comando  `\renewcommand{\sectionmark}[1]{}` deve que ser adicionado antes
+  da construções dos títulos dos capítulos.
 
 ## 2.0 - 2018-11-21
 ### [dissertacao](dissertacao)
