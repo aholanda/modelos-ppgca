@@ -1,4 +1,9 @@
 # Changelog
+## 2.1 - 2018-02-21
+### [dissertacao](dissertacao)
+Os títulos dos capítulos e seções estavam duplicando em algumas compilações.
+O comando  `\renewcommand{\sectionmark}[1]{}` deve que ser adicionado antes
+da construções dos títulos dos capítulos.
 
 ## 2.0 - 2018-11-21
 ### [dissertacao](dissertacao)
