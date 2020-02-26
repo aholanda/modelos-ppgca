@@ -35,9 +35,9 @@
 \renewcommand\documentlanguage{english}
 \else
 \renewcommand\documentlanguage{brazil}
-\fi 
+\fi
 
-% 
+%
 %
 % Fonts
 %
@@ -66,7 +66,7 @@
 % %AJH% Do not assign chapter settings here.
   \titleformat{\section}
   {\normalfont\LARGE\bfseries}
-  {\thesection}{1em}{}  
+  {\thesection}{1em}{}
 \titleformat{\subsection}
   {\normalfont\Large\bfseries}
   {\thesubsection}{1em}{}
@@ -74,12 +74,12 @@
   {\normalfont\large\bfseries}
   {\thesubsubsection}{1em}{}
 
-% 
+%
 %
 % Packages
 %
 %
-\RequirePackage{lmodern}		  % Usa a fonte Latin Modern			
+\RequirePackage{lmodern}                  % Usa a fonte Latin Modern
 \RequirePackage{iftex}                    % test if xetex engine is used
 \RequirePackage{lastpage}                 % Usado pela Ficha catalografica
 
@@ -104,9 +104,9 @@
   \defaultfontfeatures{Ligatures={TeX}}
 \fi
 
-\RequirePackage{hyperref}  			% controla a formação do índice
+\RequirePackage{hyperref}                       % controla a formação do índice
 \RequirePackage{parskip}			% espaçamento entre os parágrafos
-\RequirePackage{microtype} 			% para melhorias de justificação
+\RequirePackage{microtype}                      % para melhorias de justificação
 \RequirePackage{morefloats}			% permite mais floats
 \RequirePackage{graphicx}
 \RequirePackage{ifthen}
@@ -138,6 +138,12 @@
 
 %%%%%%%%%%%%%%%% FOR FANCIER CHAPTER TITLE
 \makechapterstyle{ppgca@chaptertitlestyle}{
+  %%
+  % 2020-02-26-ajh: the next uncommented line was added to solve the problem
+  % of replicated title after the section is written.
+  % https://tex.stackexchange.com/questions/317937/section-name-appearing-twice?rq=1
+  \renewcommand{\sectionmark}[1]{}
+  %%
   \renewcommand*{\printchaptername}{}
   \renewcommand*{\chapnumfont}{\ABNTEXchapterfont\fontsize{80}{110}\selectfont\color{thegrey}}
   \renewcommand*{\chapnumfont}{\normalfont\fontsize{80}{110}\selectfont\color{thegrey}}
@@ -148,7 +154,7 @@
   }
 
   \renewcommand{\afterchapternum}{}
-  
+
   \renewcommand*{\chaptitlefont}{\chapterfont}
   \renewcommand*{\printchaptertitle}[1]{{\thispagestyle{empty}\hrulefill\par\medskip\chaptitlefont##1\hfill}}
 
@@ -199,7 +205,7 @@
  %
  % Translations
  %
- 
+
  % Babel e ajustes
  \addto\captionsbrazil{
       %% ajusta nomes padroes do babel
@@ -239,7 +245,7 @@
       \renewcommand{\orientadorname}{Supervisor:}
       \renewcommand{\coorientadorname}{Co-supervisor:}
       \renewcommand{\folhadeaprovacaoname}{Approval}
-      \renewcommand{\resumoname}{Abstract} 
+      \renewcommand{\resumoname}{Abstract}
       \renewcommand{\fontename}{Source}
       \renewcommand{\notaname}{Note}
       %% adjusts names used by \autoref
@@ -250,7 +256,7 @@
       \renewcommand{\paragraphautorefname}{subsubsubsection}
       \renewcommand{\paragraphautorefname}{paragraph}
     }
-  
+
 
 % BIBLIOGRAPHY: change to adjust to summary
 \renewcommand\bibsection{%
@@ -276,7 +282,7 @@
 %%%%%%%%%%%%%%%% CITACOES
 \RequirePackage[alf]{abntex2cite}	% citacoes
 
-%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%
 % ---
 % Posiciona figuras e tabelas no topo da página quando adicionadas sozinhas
 % em um página em branco. Ver https://github.com/abntex/abntex2/issues/170
@@ -299,7 +305,7 @@
 % configurações para atender às regras da ABNT
 \setfloatadjustment{quadro}{\centering}
 \counterwithout{quadro}{chapter}
-\renewcommand{\cftquadroname}{\quadroname\space} 
+\renewcommand{\cftquadroname}{\quadroname\space}
 \renewcommand*{\cftquadroaftersnum}{\hfill--\hfill}
 \setfloatlocations{quadro}{hbtp} % Ver https://github.com/abntex/abntex2/issues/176
 % ---
@@ -314,7 +320,7 @@
   }{ % else
     \cleardoublepage
   }
-}  
+}
 
 %
 % ATTRIBUTES
@@ -385,7 +391,7 @@
     \vfill
 
     {\normalfont\normalsize\MakeUppercase{\@author}}
-    
+
     \vfill
 
     {\normalfont\Large\textbf{\@title}}
@@ -412,7 +418,7 @@
 \fi
 \newcommand\thesupervisorlabel{\@supervisorlabel}
 
-% 
+%
 % DOCUMENT TYPE: Dissertação ou Tese
 % muda para o inglês de acordo com a escolha
 %
@@ -441,7 +447,7 @@
   \else
   Versão Original
   \fi
-} 
+}
 \newcommand{\versaodocumento}[1] {
   \ifthenelse{\equal{\@versaodocumento}{corrigida}}{\correctedtrue}{\correctedfalse}
 }
@@ -479,7 +485,7 @@
 
   \vspace{.5cm}
   \supervisor
-  
+
 \else
  \documenttype~apresentada à
   \@faculty~(FFCLRP) da \@institution~(USP),
@@ -518,19 +524,19 @@
     \@@fmtauthor{\MakeUppercase{\@author}}
 
     \vfill
-    
+
     \@@fmttitle{\textbf{\@title}}
 
     \vfill
-    
+
     \begingroup
     \@textoversaodocumento
     \endgroup % Original ou Corrigida
-    
+
     \vfill
 
     \fmt@description
-    
+
     \vfill
 
     \fmt@city
@@ -552,15 +558,15 @@
 
 \hypersetup{
   % pagebackref=true,
-  pdftitle={\imprimirtitulo}, 
+  pdftitle={\imprimirtitulo},
   pdfauthor={\theauthor},
   pdfsubject={\imprimirpreambulo},
   pdfcreator={LaTeX with abnTeX2.PPGCA},
-  pdfkeywords={ABNT}{LaTeX}{abntex2}{dissertation}{PPGCA}{USP}, 
-  colorlinks=true,       	% false: boxed links; true: colored links
-  linkcolor=black,          	% color of internal links
-  citecolor=black,        	% color of links to bibliography
-  filecolor=magenta,      	% color of file links
+  pdfkeywords={ABNT}{LaTeX}{abntex2}{dissertation}{PPGCA}{USP},
+  colorlinks=true,              % false: boxed links; true: colored links
+  linkcolor=black,              % color of internal links
+  citecolor=black,              % color of links to bibliography
+  filecolor=magenta,            % color of file links
   urlcolor=black,
   bookmarksdepth=4
 }
