@@ -1,13 +1,13 @@
 %% =============================================================================
 %% ppgca.cls
 %%
-%% Copyright 2017-2020 Adriano J. Holanda, DCM/FFCLRP/USP
+%% Copyright 2017-2018 Adriano J. Holanda, DCM/FFCLRP/USP
 %%
 %% This software is distributed under MIT License
 %% https://opensource.org/licenses/MIT
 %% =============================================================================
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ppgca}[2020/02/27 v2.3, class to DCM/FFCLRP/USP graduate manuscript template]
+\ProvidesClass{ppgca}[2018/11/21 v2.0, class to DCM/FFCLRP/USP graduate manuscript template]
 %
 %
 % Class option(s) implemented only in ppgca
@@ -58,31 +58,13 @@
 
 %
 %
-% SECTIONS
-%
-%
-
-\RequirePackage{titlesec}
-% %AJH% Do not assign chapter settings here.
-  \titleformat{\section}
-  {\normalfont\LARGE\bfseries}
-  {\thesection}{1em}{}
-\titleformat{\subsection}
-  {\normalfont\Large\bfseries}
-  {\thesubsection}{1em}{}
-\titleformat{\subsubsection}
-  {\normalfont\large\bfseries}
-  {\thesubsubsection}{1em}{}
-
-%
-%
 % Packages
 %
 %
 \RequirePackage{lmodern}                  % Usa a fonte Latin Modern
 \RequirePackage{ifxetex,ifluatex}
 \RequirePackage{lastpage}                 % Usado pela Ficha catalografica
-\RequirePackage{fancyhdr}
+%\RequirePackage{fancyhdr}
 
 % We define a new if to test xetex OR luatex engines logical condition.
 \newif\ifxetexorluatex
@@ -148,15 +130,13 @@
   % 2020-02-26-ajh: the next uncommented line was added to solve the problem
   % of replicated title after the chapter/section is written.
   % https://tex.stackexchange.com/questions/317937/section-name-appearing-twice?rq=1
-  \renewcommand{\chaptermark}[1]{}
-  \renewcommand{\sectionmark}[1]{}
+  \renewcommand*{\chaptermark}[1]{\markboth{}{}}
+  \renewcommand*{\sectionmark}[1]{}
   %%
   \renewcommand*{\printchaptername}{}
   \renewcommand*{\chapnumfont}{\ABNTEXchapterfont\fontsize{80}{110}\selectfont\color{thegrey}}
   \renewcommand*{\chapnumfont}{\normalfont\fontsize{80}{110}\selectfont\color{thegrey}}
-  \renewcommand*{\printchapternum}{
-    {\hfill\chapnumfont\thechapter}\par\nobreak
-
+  \renewcommand*{\printchapternum}{{\hfill\chapnumfont\thechapter}\par\nobreak
     \tocprintchapter
   }
 
@@ -175,13 +155,23 @@
       \setboolean{abntex@innonumchapter}{true}\nobreak
     }
   }
-  \pagestyle{fancy}
-  \fancyhf{}
-  \fancyhead[LE,RO]{\footnotesize\leftmark}
-  \fancyhead[RE,LO]{\footnotesize\rightmark}
-  \fancyfoot[CE,CO]{}
-  \fancyfoot[LE,RO]{\hfill\thepage\hfill}
 }
+
+%
+% SECTIONS
+%
+
+\RequirePackage{titlesec}
+% %AJH% Do not assign chapter settings here.
+  \titleformat{\section}
+              {\normalfont\LARGE\bfseries}
+              {\thesection}{1em}{}[]
+              \titleformat{\subsection}
+                          {\normalfont\Large\bfseries}
+                          {\thesubsection}{1em}{}
+                          \titleformat{\subsubsection}
+                                      {\normalfont\large\bfseries}
+                                      {\thesubsubsection}{1em}{}
 
 % RESUMO
 \renewenvironment{abstract}{\subsection*{\chapterfont\hfil\abstractname}}{}
