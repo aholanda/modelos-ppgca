@@ -1,7 +1,7 @@
 %% =============================================================================
 %% ppgca.cls
 %%
-%% Copyright 2018 Adriano J. Holanda, DCM/FFCLRP/USP
+%% Copyright 2018-2020 Adriano J. Holanda, DCM/FFCLRP/USP
 %%
 %% This software is distributed under MIT License
 %% https://opensource.org/licenses/MIT
@@ -16,7 +16,7 @@
 % Read all the documentclass options; pass them to abntex2,
 % unless the file "<currentoption>.preppgca" exists, then it is loaded
 \DeclareOption*{\InputIfFileExists{\CurrentOption.preppgca}{}{
-    % 
+    %
     \PassOptionsToClass{\CurrentOption}{abntex2}}}
 
 % --- Class structure: execution of options part
@@ -37,23 +37,23 @@
 \RequirePackage{titlesec}
 \titleformat{\section}
   {\normalfont\Large\bfseries}
-  {\thesection}{1em}{}  
+  {\thesection}{1em}{}
 \titleformat{\subsection}
   {\normalfont\large\bfseries}
   {\thesection}{1em}{}
 
-%%%%%%%%%%%%%%%% BIBLIOGRAPHY  
+%%%%%%%%%%%%%%%% BIBLIOGRAPHY
 \newcommand\mybibname{Refer\^{e}ncias}
 \renewcommand\bibsection{%
   \begin{center}
     \noindent\normalsize\large\bfseries{\mybibname}%
  \end{center}
 }
-  
+
 %%%%%%%%%%%%%%%% RESUMO font
 \renewenvironment{abstract}{\subsection*{\hfil\abstractname}}{}
 
-%%%%%%%%%%%%%%%% SWITCH XETEX AND TEX  
+%%%%%%%%%%%%%%%% SWITCH XETEX AND TEX
 \RequirePackage{iftex}                    % test if xetex engine is used
 \ifXeTeX % XeTeX
   \RequirePackage{fontspec}
@@ -76,7 +76,7 @@
 
 \RequirePackage{lmodern}			% Usa a fonte Latin Modern
 \RequirePackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
-\RequirePackage{nomencl} 			% Lista de simbolos
+\RequirePackage{nomencl}                        % Lista de simbolos
 \RequirePackage{color}				% Controle das cores
 \RequirePackage{graphicx}			% Inclusão de gráficos
 \RequirePackage{multirow}
@@ -147,7 +147,7 @@
         \commonmaketitle\smallskip
         {\footnotesize Programa de Pós-Graduação em Computação Aplicada\par
          Departamento de Computação e Matemática\par
-         Faculdade de Filosofia, Ciência e Letras de Ribeirão Preto--USP} 
+         Faculdade de Filosofia, Ciência e Letras de Ribeirão Preto--USP}
       \end{center}
     }
     \makeatother
@@ -159,11 +159,11 @@
 \makeatletter
 \hypersetup{
         %pagebackref=true,
-                pdftitle={\show@titulo}, 
+                pdftitle={\show@titulo},
                 pdfauthor={\show@aluno},
                 pdfsubject={\show@titulo},
                 pdfcreator={LaTeX with preppgca},
-                pdfkeywords={}{}, 
+                pdfkeywords={}{},
                 colorlinks=true, % false: boxed links; true: colored links
                 linkcolor=blue, % color of internal links
                 citecolor=blue, % color of links to bibliography
@@ -172,4 +172,3 @@
                 bookmarksdepth=4
 }
 \makeatother
-

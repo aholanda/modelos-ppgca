@@ -1,7 +1,7 @@
 %% =============================================================================
 %% ppgcaposter.cls
 %%
-%% Copyright 2017 Adriano J. Holanda, DCM/FFCLRP/USP
+%% Copyright 2017-2020 Adriano J. Holanda, DCM/FFCLRP/USP
 %%
 %% This software is distributed under MIT License
 %% https://opensource.org/licenses/MIT
@@ -16,7 +16,7 @@
 % Read all the documentclass options; pass them to a0poster,
 % unless the file "<currentoption>.ppgcaposter" exists, then it is loaded
 \DeclareOption*{\InputIfFileExists{\CurrentOption.ppgcaposter}{}{
-    % 
+    %
     \PassOptionsToClass{\CurrentOption}{a0poster}}}
 
 % --- Class structure: execution of options part
@@ -54,7 +54,7 @@
 \columnseprule=3pt % This is the thickness of the black line between the columns in the poster
 \RequirePackage{babelbib}
 
-\RequirePackage[svgnames]{xcolor} 
+\RequirePackage[svgnames]{xcolor}
 \RequirePackage{amsmath}
 \RequirePackage{graphicx} % Required for including images
 \RequirePackage{booktabs} % Top and bottom rules for table
@@ -67,7 +67,7 @@
 \RequirePackage{caption}
 \RequirePackage{etoolbox}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % FONTS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
