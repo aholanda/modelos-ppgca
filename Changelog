@@ -1,4 +1,10 @@
 # Changelog
+## 2.3 - 2018-02-27
+### [dissertacao](dissertacao)
+- Mudança em `ppgca.cls` para gerar o cabeçalho usando o pacote `fancyhdr`
+- Adição da opção em `main.tex` para adicionar tabulação na primeira linha
+  do primeiro parágrafo de cada capítulo.
+- Adição da opção em `main.tex` para remover o cabeçalho deixando-o em branco.
 ## 2.2 - 2018-02-21
 - Os capítulos ainda apareciam repetidos pois faltava "zerar" a
   variável `chaptermark`.
