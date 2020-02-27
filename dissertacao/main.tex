@@ -12,28 +12,42 @@ a4paper,     % tamanho do papel
 % french,      % idioma adicional para hifenizacao
 % spanish,     % idioma adicional para hifenizacao
 english,       % idioma adicional para hifenizacao
-brazil,        % ultimo idioma eh o principal do documento
+brazil        % ultimo idioma eh o principal do documento
 %
 % ppgca.cls options
 %
 %englishwr      % For documents written in english
 ]{ppgca}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Para que o primeiro parágrafo também seja 'indentado':
+% troque \ifnum1=0 por \ifnum1=1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifnum1=0
+\ifxetexorluatex
+\PolyglossiaSetup{brazil}{indentfirst=true}
+\PolyglossiaSetup{english}{indentfirst=true}
+\else
+\usepackage{indentfirst}
+\fi
+\fi
+
 %%%%%%%%%%%%%%%% VERSÃO DO DOCUMENTO: ORIGINAL OU CORRIGIDA
 % Após as correções sugeridas pela banca serem efetuadas, retire os comentários
 % da próxima linha.
 % \versaodocumento{corrigida}
- 
+
 % Este arquivo foi baseado no modelo disponível em https://www.ctan.org/pkg/abntex2.
 
 % Para gerar o indice, execute o comando makeindex:
 % makeindex main
 
-% O preambulo deve conter o tipo do trabalho, o objetivo, 
-% o nome da instituição e a área de concentração 
+% O preambulo deve conter o tipo do trabalho, o objetivo,
+% o nome da instituição e a área de concentração
 \preambulo{Modelo canônico de trabalho monográfico acadêmico em conformidade com
 as normas ABNT.}
 
+\usepackage{blindtext}
 \usepackage{lipsum}                             % para geração de dummy text
 %---
 % Informações de dados para CAPA e FOLHA DE ROSTO
@@ -46,9 +60,9 @@ as normas ABNT.}
 \coorientador{}
 \tipotrabalho{Dissertação} % Dissertação ou Tese
 
-% --- 
-% Espaçamentos entre linhas e parágrafos 
-% --- 
+% ---
+% Espaçamentos entre linhas e parágrafos
+% ---
 % O tamanho do parágrafo é dado por:
 \setlength{\parindent}{1.3cm}
 
@@ -59,7 +73,7 @@ as normas ABNT.}
 %#% following command:
 % \setdefaultlanguage{english}
 
-% #% Options for the \setdefaultlanguage{} can be found at 
+% #% Options for the \setdefaultlanguage{} can be found at
 % #% http://mirrors.ctan.org/macros/latex/contrib/polyglossia/polyglossia.pdf#page=5
 
 % ---
@@ -69,6 +83,16 @@ as normas ABNT.}
 \makeindex
 % ---
 \begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Para limpar o cabeçalho, troque \ifnum1=0 por \ifnum1=1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifnum1=0
+\newcommand{\sectionbreak}{\clearpage
+\fancyhead[LE,RO]{}
+\fancyhead[RE,LO]{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}}
+\fi
 
 % ----------------------------------------------------------
 % ELEMENTOS PRÉ-TEXTUAIS
@@ -93,7 +117,7 @@ as normas ABNT.}
 % ---
 
 % Isto é um exemplo de Ficha Catalográfica, ou ``Dados internacionais de
-% catalogação-na-publicação''. Você pode utilizar este modelo como referência. 
+% catalogação-na-publicação''. Você pode utilizar este modelo como referência.
 % Porém, provavelmente a biblioteca da sua universidade lhe fornecerá um PDF
 % com a ficha catalográfica definitiva após a defesa do trabalho. Quando estiver
 % com o documento, salve-o como PDF no diretório do seu projeto e substitua todo
@@ -104,33 +128,33 @@ as normas ABNT.}
 % \end{fichacatalografica}
 
 \begin{fichacatalografica}
-	\sffamily
-	\vspace*{\fill}					% Posição vertical
-	\begin{center}					% Minipage Centralizado
-	\fbox{\begin{minipage}[c][8cm]{13.5cm}		% Largura
-	\small
-	\imprimirautor
-	%Sobrenome, Nome do autor
-	
-	\hspace{0.5cm} \imprimirtitulo.
-	\imprimirlocal, \imprimirdata.
-	
-	\hspace{0.5cm} \thelastpage p. : il.; 30 cm.\\
-	
-	\hspace{0.5cm}
-	\parbox[t]{\textwidth}{\imprimirtipotrabalho\ apresentada à
+        \sffamily
+        \vspace*{\fill}					% Posição vertical
+        \begin{center}					% Minipage Centralizado
+        \fbox{\begin{minipage}[c][8cm]{13.5cm}		% Largura
+        \small
+        \imprimirautor
+        %Sobrenome, Nome do autor
+
+        \hspace{0.5cm} \imprimirtitulo.
+        \imprimirlocal, \imprimirdata.
+
+        \hspace{0.5cm} \thelastpage p. : il.; 30 cm.\\
+
+        \hspace{0.5cm}
+        \parbox[t]{\textwidth}{\imprimirtipotrabalho\ apresentada à
           Faculdade de Filosofia, Ciências e Letras \\
           de Ribeirão Preto da USP, como parte das exigências para \\
           a obtenção do título de Mestre em Ciências, \\
           Área: Computação
           Aplicada.}\\
 
-      	\hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
-      
-	\hspace{0.5cm}
-		1. Palavra-chave1. 2. Palavra-chave2. 3. Palavra-chave3.
-	\end{minipage}}
-	\end{center}
+        \hspace{0.5cm} \imprimirorientadorRotulo~\imprimirorientador\\
+
+        \hspace{0.5cm}
+                1. Palavra-chave1. 2. Palavra-chave2. 3. Palavra-chave3.
+        \end{minipage}}
+        \end{center}
       \end{fichacatalografica}
       \cleardoublepage
 % ---
@@ -185,24 +209,24 @@ Zootecnia, Universidade de São Paulo, São Paulo, 2011.
     \vspace*{\fill}\vspace*{\fill}
     \thetitle
     \vspace*{\fill}
-    
+
     \hspace{.45\textwidth}
     \begin{minipage}{.5\textwidth}
         \imprimirpreambulo
     \end{minipage}%
     \vspace*{\fill}
    \end{center}
-   
+
    Trabalho aprovado. \imprimirlocal, 21 de novembro de 2018:
 
-   \assinatura{\textbf{\thesupervisorlabel:} \\ Orientador} 
+   \assinatura{\textbf{\thesupervisorlabel:} \\ Orientador}
    \assinatura{\textbf{Professor} \\ Convidado 1}
    \assinatura{\textbf{Professor} \\ Convidado 2}
    \ifthenelse{\equal{\imprimirtipotrabalho}{Tese}}{
      \assinatura{\textbf{Professor} \\ Convidado 3}
      \assinatura{\textbf{Professor} \\ Convidado 4}
    }{}
-      
+
    \begin{center}
     \vspace*{0.5cm}
     {\large\imprimirlocal}
@@ -210,7 +234,7 @@ Zootecnia, Universidade de São Paulo, São Paulo, 2011.
     {\large\imprimirdata}
     \vspace*{1cm}
   \end{center}
-  
+
 \end{folhadeaprovacao}
 % ---
 
@@ -239,13 +263,13 @@ Agradeço $\ldots$
 % ---
 \begin{epigrafe}
     \vspace*{\fill}
-	\begin{flushright}
-		\textit{``Não vos amoldeis às estruturas deste mundo, \\
-		mas transformai-vos pela renovação da mente, \\
-		a fim de distinguir qual é a vontade de Deus: \\
-		o que é bom, o que Lhe é agradável, o que é perfeito.\\
-		(Bíblia Sagrada, Romanos 12, 2)}
-	\end{flushright}
+        \begin{flushright}
+                \textit{``Não vos amoldeis às estruturas deste mundo, \\
+                mas transformai-vos pela renovação da mente, \\
+                a fim de distinguir qual é a vontade de Deus: \\
+                o que é bom, o que Lhe é agradável, o que é perfeito.\\
+                (Bíblia Sagrada, Romanos 12, 2)}
+        \end{flushright}
 \end{epigrafe}
 % ---
 
@@ -271,7 +295,7 @@ Agradeço $\ldots$
    This is the english abstract.
 
    \vspace{\onelineskip}
- 
+
    \noindent \textbf{Keywords}: latex. abntex. text editoration.
 % \end{otherlanguage*}
 \end{resumo}
@@ -346,11 +370,15 @@ Agradeço $\ldots$
 
 \chapter{Referencial Teórico}
 
+\lipsum[2]
+
 % ---
-\section{Aliquam vestibulum fringilla lorem}
+\section{Aliquam vestibulum}
 % ---
 
 \lipsum[8]
+
+\blindtext[8]
 
 \section{Videt Omnia}
 
@@ -358,15 +386,28 @@ Agradeço $\ldots$
 
 \subsection{Subseção}
 
+\lipsum[36-38]
+
+\blindtext[3]
+
 \subsubsection{SubSubseção}
 
+\lipsum[41-42]
+
+\blindtext[2]
+
+
 \chapter{Desenvolvimento ou Metodologia}
+
+\lipsum[16]
 
 \section{Quod Videt} % capítulo numerado, COM asterisco
 
 \lipsum[3-4]
 
 \chapter{Resultados}
+
+\lipsum[100]
 
 \section{Lorem Ipsum}
 
@@ -399,7 +440,7 @@ A Figura~\ref{fig:cilindro}\index{cilindro} mostra o $\ldots$
 \begin{figure}[ht]
   \caption{Cilindro.}
   \centering
-  \includegraphics{cilindro} 
+  \includegraphics{cilindro}
   \label{fig:cilindro}
 \end{figure}
 
