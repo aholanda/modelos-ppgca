@@ -80,10 +80,23 @@
 %
 %
 \RequirePackage{lmodern}                  % Usa a fonte Latin Modern
-\RequirePackage{iftex}                    % test if xetex engine is used
+\RequirePackage{ifxetex,ifluatex}
 \RequirePackage{lastpage}                 % Usado pela Ficha catalografica
+\RequirePackage{fancyhdr}
 
-\ifXeTeX % XeTeX
+% We define a new if to test xetex OR luatex engines logical condition.
+\newif\ifxetexorluatex
+\ifxetex
+ \xetexorluatextrue
+\else
+  \ifluatex
+    \xetexorluatextrue
+  \else
+    \xetexorluatexfalse
+    \fi
+  \fi
+
+\ifxetexorluatex
   \RequirePackage{fontspec}
   \RequirePackage{polyglossia}
   \setdefaultlanguage{\documentlanguage}
@@ -95,13 +108,6 @@
       % ti's only needed to select the english language
       % if englishwr is passed as argument to \documentclass
       \ifthenelse{\equal{\documentlanguage}{english}}{\selectlanguage{english}}{}
-\fi
-
-\ifLuaTeX % LuaTeX
-  \RequirePackage{fontspec}
-  \RequirePackage{polyglossia}
-  \setdefaultlanguage{\documentlanguage}
-  \defaultfontfeatures{Ligatures={TeX}}
 \fi
 
 \RequirePackage{hyperref}                       % controla a formação do índice
@@ -169,6 +175,12 @@
       \setboolean{abntex@innonumchapter}{true}\nobreak
     }
   }
+  \pagestyle{fancy}
+  \fancyhf{}
+  \fancyhead[LE,RO]{\footnotesize\leftmark}
+  \fancyhead[RE,LO]{\footnotesize\rightmark}
+  \fancyfoot[CE,CO]{}
+  \fancyfoot[LE,RO]{\hfill\thepage\hfill}
 }
 
 % RESUMO
