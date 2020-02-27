@@ -1,4 +1,10 @@
 # Changelog
+## 2.4 - 2018-02-27
+### [dissertacao](dissertacao)
+- Mudança em `ppgca.cls` com a não-utilização do pacote `fancyhdr`.
+ O erro descrito no [issue 1](https://github.com/ajholanda/modelos-ppgca/issues/1)
+ era causado por uma variável chamada `\mark` definida no arquivo principal `main.tex`.
+
 ## 2.3 - 2018-02-27
 ### [dissertacao](dissertacao)
 - Mudança em `ppgca.cls` para gerar o cabeçalho usando o pacote `fancyhdr`
