@@ -1,13 +1,13 @@
 %% =============================================================================
 %% ppgca.cls
 %%
-%% Copyright 2017-2018 Adriano J. Holanda, DCM/FFCLRP/USP
+%% Copyright 2017-2020 Adriano J. Holanda, DCM/FFCLRP/USP
 %%
 %% This software is distributed under MIT License
 %% https://opensource.org/licenses/MIT
 %% =============================================================================
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ppgca}[2018/11/21 v2.0, class to DCM/FFCLRP/USP graduate manuscript template]
+\ProvidesClass{ppgca}[2020/02/27 v2.3, class to DCM/FFCLRP/USP graduate manuscript template]
 %
 %
 % Class option(s) implemented only in ppgca
